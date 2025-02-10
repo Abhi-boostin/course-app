@@ -8,8 +8,8 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 const navigation = [
-  { name: "All Courses", href: "/" },
-  { name: "My Courses", href: "/dashboard" },
+  { name: "All Courses", href: "/course-app" },
+  { name: "My Courses", href: "/course-app/dashboard" },
 ]
 
 export function DashboardLayout({ children }: { children: React.ReactNode }) {
