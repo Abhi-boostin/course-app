@@ -7,9 +7,11 @@ import { Menu } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
+const basePath = process.env.NODE_ENV === 'production' ? '/course-app' : '';
+
 const navigation = [
-  { name: "All Courses", href: "/course-app" },
-  { name: "My Courses", href: "/course-app/dashboard" },
+  { name: "All Courses", href: `${basePath}/` },
+  { name: "My Courses", href: `${basePath}/dashboard` },
 ]
 
 export function DashboardLayout({ children }: { children: React.ReactNode }) {

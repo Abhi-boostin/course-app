@@ -2,13 +2,13 @@
   "name": "course-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://your-username.github.io/course-app",
+  "homepage": "https://abhi-boostin.github.io/course-app",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "predeploy": "npm run build",
+    "predeploy": "cross-env NODE_ENV=production npm run build",
     "deploy": "gh-pages -d out",
     "export": "next export"
   },
@@ -37,6 +37,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^7.0.3",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
     "gh-pages": "^6.3.0",
