@@ -1,0 +1,19 @@
+[33m7f394fc[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Fix cross-platform environment variable
+[33m3573543[m[33m ([m[1;31morigin/main[m[33m)[m Merge branch 'main' of https://github.com/Abhi-boostin/course-app
+[33m2798f86[m Configure for GitHub Pages deployment
+[33ma46594b[m Create nextjs.yml
+[33m6c298fa[m FIX - lazy loading effect
+[33m9be6dad[m UPDATE - readme
+[33md62f268[m using dummy api instead of a hard coded course.ts file saved in the code base
+[33m1356d43[m ADD/FIX - Fix EnrolledCourses component to retrieve courses from Redux state
+[33mcd51953[m FIX: Background paths visibility
+[33me445b66[m ADD: Student dashboard and course progress
+[33md86838b[m ADD: Course details drawer
+[33m7d60b89[m ADD -  light and dark theme mode , used the next-themes package
+[33m49a4965[m feat: Add animated background paths and glass morphism
+[33ma340879[m feat: Add course drawer and accordion components
+[33m4c3d011[m ADD - more course data added for more sample testing
+[33m909ed62[m created a course component that showcase course on the homepage for students with course data
+[33m6c9d3da[m ADD - global css, tailwind config, packages and dependecies | course and util static data
+[33m902f61f[m added component from the shadcn/ui
+[33mafc09a7[m first commit
