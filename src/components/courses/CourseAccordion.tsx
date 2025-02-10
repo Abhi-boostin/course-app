@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input"
 import { useState } from "react"
 import { courses } from "@/lib/data/courses"
 import Link from "next/link"
+import { CourseDrawer } from "./CourseDrawer"
 
 export function CourseAccordion() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -58,12 +59,7 @@ export function CourseAccordion() {
                       <strong>Status:</strong> {course.enrollmentStatus}
                     </div>
                   </div>
-                  <Link 
-                    href={`/courses/${course.id}`}
-                    className="text-sm text-primary hover:underline block mt-4"
-                  >
-                    View full details →
-                  </Link>
+                  <CourseDrawer course={course} />
                 </div>
               </AccordionContent>
             </AccordionItem>
