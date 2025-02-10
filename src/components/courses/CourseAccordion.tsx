@@ -12,6 +12,7 @@ import { useState } from "react"
 import { courses } from "@/lib/data/courses"
 import Link from "next/link"
 import { CourseDrawer } from "./CourseDrawer"
+import { Button } from "@/components/ui/button"
 
 export function CourseAccordion() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -59,7 +60,12 @@ export function CourseAccordion() {
                       <strong>Status:</strong> {course.enrollmentStatus}
                     </div>
                   </div>
-                  <CourseDrawer course={course} />
+                  <div className="flex items-center space-x-2">
+                    <CourseDrawer course={course} />
+                    <Button variant="link" className="text-sm text-primary hover:underline">
+                      Quick Enroll →
+                    </Button>
+                  </div>
                 </div>
               </AccordionContent>
             </AccordionItem>

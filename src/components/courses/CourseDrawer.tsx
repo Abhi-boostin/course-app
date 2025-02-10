@@ -18,17 +18,32 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { useDispatch, useSelector } from 'react-redux'
+import { enrollInCourse, unenrollFromCourse } from '@/lib/redux/slices/courseSlice'
+import type { RootState } from '@/lib/redux/store'
 
 interface CourseDrawerProps {
   course: Course
 }
 
 export function CourseDrawer({ course }: CourseDrawerProps) {
+  const dispatch = useDispatch()
+  const enrolledCourses = useSelector((state: RootState) => state.courses.enrolledCourses)
+  const isEnrolled = enrolledCourses.includes(course.id)
+
+  const handleEnrollment = () => {
+    if (isEnrolled) {
+      dispatch(unenrollFromCourse(course.id))
+    } else {
+      dispatch(enrollInCourse(course.id))
+    }
+  }
+
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button variant="link" className="text-sm text-primary hover:underline">
-          View full details →
+        <Button variant="outline" size="sm" className="mr-2">
+          View Details
         </Button>
       </DrawerTrigger>
       <DrawerContent>
@@ -42,7 +57,7 @@ export function CourseDrawer({ course }: CourseDrawerProps) {
           <div className="p-4 space-y-6">
             <div className="text-sm space-y-2">
               <h3 className="font-semibold">About this Course</h3>
-              <p className="text-muted-foreground">{course.about || course.description}</p>
+              <p className="text-muted-foreground">{course.description}</p>
             </div>
             
             <div className="grid grid-cols-2 gap-4 text-sm">
@@ -93,14 +108,16 @@ export function CourseDrawer({ course }: CourseDrawerProps) {
             </div>
           </div>
 
-          <DrawerFooter>
-            <Button>Add to My Courses</Button>
+          <DrawerFooter className="flex-row justify-between">
+            <Button onClick={handleEnrollment} className="flex-1 mr-2">
+              {isEnrolled ? 'Unenroll from Course' : 'Enroll in Course'}
+            </Button>
             <DrawerClose asChild>
-              <Button variant="outline">Go back</Button>
+              <Button variant="outline" className="flex-1">Close</Button>
             </DrawerClose>
           </DrawerFooter>
         </div>
       </DrawerContent>
     </Drawer>
   )
-} 
+}
