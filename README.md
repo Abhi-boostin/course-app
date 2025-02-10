@@ -19,30 +19,27 @@ This is a Course Management Application built with Next.js, React, and Redux. Th
   - Tailwind CSS for styling
   - Radix UI for accessible UI components
 
-- **Backend**: 
-  - Firebase (or a custom Node.js/Express server) for real-time data management and WebSocket support (if implemented).
-
 ## Getting Started
 
 To run the application locally, follow these steps:
 
-1. Clone the repository:
+1. **Clone the repository**:
    ```bash
    git clone <repository-url>
    cd course-app
    ```
 
-2. Install the dependencies:
+2. **Install the dependencies**:
    ```bash
    npm install
    ```
 
-3. Run the development server:
+3. **Run the development server**:
    ```bash
    npm run dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+4. **Open [http://localhost:3000](http://localhost:3000)** in your browser to see the application.
 
 ## Project Structure
 
@@ -56,12 +53,12 @@ To run the application locally, follow these steps:
 ## Usage
 
 - Users can browse available courses on the home page.
-- Enroll in courses by clicking the "Quick Enroll" button or view more details using the "View Details" button.
+- Enroll in courses by clicking the "Enroll in Course" button or view more details using the "View Details" button.
 - Access the student dashboard to see enrolled courses and track progress.
 
 ## Future Enhancements
 
-- Implement real-time likes for courses using WebSocket or Firebase.
+- Implement real-time updates for course enrollment using WebSocket or Firebase.
 - Add user authentication to manage user sessions.
 - Enhance the dashboard with additional statistics and insights.
 
