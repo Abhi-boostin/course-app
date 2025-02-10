@@ -1,5 +1,9 @@
 "use client"
 
+import { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { setCourses } from "@/lib/redux/slices/courseSlice"
+import { RootState } from "@/lib/redux/store"
 import {
   Accordion,
   AccordionContent,
@@ -8,20 +12,39 @@ import {
 } from "@/components/ui/accordion"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Input } from "@/components/ui/input"
-import { useState } from "react"
-import { courses } from "@/lib/data/courses"
-import Link from "next/link"
 import { CourseDrawer } from "./CourseDrawer"
 import { Button } from "@/components/ui/button"
 
 export function CourseAccordion() {
+  const dispatch = useDispatch()
+  const courses = useSelector((state: RootState) => state.courses.courses)
   const [searchQuery, setSearchQuery] = useState("")
 
-  const filteredCourses = courses.filter(
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await fetch("https://mocki.io/v1/68c63d24-6b6b-4156-8c24-a3118bacd02e")
+        const data = await response.json()
+        console.log("Fetched data:", data)
+        
+        if (data.courses && Array.isArray(data.courses)) {
+          dispatch(setCourses(data.courses))
+        } else {
+          console.error("Fetched data is not an array:", data)
+        }
+      } catch (error) {
+        console.error("Error fetching courses:", error)
+      }
+    }
+
+    fetchCourses()
+  }, [dispatch])
+
+  const filteredCourses = Array.isArray(courses) ? courses.filter(
     (course) =>
       course.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       course.instructor.toLowerCase().includes(searchQuery.toLowerCase())
-  )
+  ) : []
 
   return (
     <div className="w-full max-w-3xl mx-auto p-4 space-y-4">

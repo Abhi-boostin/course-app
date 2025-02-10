@@ -4,10 +4,10 @@ import { useSelector } from "react-redux"
 import type { RootState } from "@/lib/redux/store"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
-import { courses } from "@/lib/data/courses"
 
 export function EnrolledCourses() {
   const enrolledCourseIds = useSelector((state: RootState) => state.courses.enrolledCourses)
+  const courses = useSelector((state: RootState) => state.courses.courses)
   const enrolledCourses = courses.filter(course => enrolledCourseIds.includes(course.id))
 
   if (enrolledCourses.length === 0) {

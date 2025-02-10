@@ -1,15 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { courses } from '@/lib/data/courses'
 
 interface CourseState {
-  courses: Course[]
+  courses: Course[] // Initialize as an empty array
   enrolledCourses: number[] // Array of course IDs
   loading: boolean
   error: string | null
 }
 
 const initialState: CourseState = {
-  courses: courses,
+  courses: [], // Start with an empty array
   enrolledCourses: [],
   loading: false,
   error: null
@@ -26,9 +25,12 @@ export const courseSlice = createSlice({
     },
     unenrollFromCourse: (state, action: PayloadAction<number>) => {
       state.enrolledCourses = state.enrolledCourses.filter(id => id !== action.payload)
+    },
+    setCourses: (state, action: PayloadAction<Course[]>) => {
+      state.courses = action.payload; // Add a reducer to set courses from the API
     }
   }
 })
 
-export const { enrollInCourse, unenrollFromCourse } = courseSlice.actions
+export const { enrollInCourse, unenrollFromCourse, setCourses } = courseSlice.actions
 export default courseSlice.reducer 
