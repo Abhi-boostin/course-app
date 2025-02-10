@@ -59,7 +59,6 @@ export function CourseDrawer({ course }: CourseDrawerProps) {
               <h3 className="font-semibold">About this Course</h3>
               <p className="text-muted-foreground">{course.description}</p>
             </div>
-            
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
                 <strong>Duration:</strong> {course.duration}
@@ -81,33 +80,7 @@ export function CourseDrawer({ course }: CourseDrawerProps) {
                 </span>
               </div>
             </div>
-
-            <div className="text-sm space-y-2">
-              <h3 className="font-semibold">Prerequisites</h3>
-              <ul className="list-disc list-inside text-muted-foreground">
-                {course.prerequisites.map((prereq, index) => (
-                  <li key={index}>{prereq}</li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="text-sm">
-              <h3 className="font-semibold mb-2">Syllabus</h3>
-              <Accordion type="single" collapsible className="w-full">
-                {course.syllabus.map((item, index) => (
-                  <AccordionItem key={index} value={`week-${index + 1}`}>
-                    <AccordionTrigger className="text-sm">
-                      Week {item.week}: {item.topic}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">
-                      {item.content}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
           </div>
-
           <DrawerFooter className="flex-row justify-between">
             <Button onClick={handleEnrollment} className="flex-1 mr-2">
               {isEnrolled ? 'Unenroll from Course' : 'Enroll in Course'}

@@ -13,7 +13,6 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Input } from "@/components/ui/input"
 import { CourseDrawer } from "./CourseDrawer"
-import { Button } from "@/components/ui/button"
 
 export function CourseAccordion() {
   const dispatch = useDispatch()
@@ -25,8 +24,6 @@ export function CourseAccordion() {
       try {
         const response = await fetch("https://mocki.io/v1/68c63d24-6b6b-4156-8c24-a3118bacd02e")
         const data = await response.json()
-        console.log("Fetched data:", data)
-        
         if (data.courses && Array.isArray(data.courses)) {
           dispatch(setCourses(data.courses))
         } else {
@@ -83,12 +80,7 @@ export function CourseAccordion() {
                       <strong>Status:</strong> {course.enrollmentStatus}
                     </div>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <CourseDrawer course={course} />
-                    <Button variant="link" className="text-sm text-primary hover:underline">
-                      Quick Enroll →
-                    </Button>
-                  </div>
+                  <CourseDrawer course={course} />
                 </div>
               </AccordionContent>
             </AccordionItem>
