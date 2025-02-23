@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { Course } from '@/lib/types/course'
 
 interface CourseState {
   courses: Course[] // Initialize as an empty array
