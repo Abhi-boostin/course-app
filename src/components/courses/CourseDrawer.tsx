@@ -12,12 +12,6 @@ import {
 } from "@/components/ui/drawer"
 import { Button } from "@/components/ui/button"
 import { Course } from "@/lib/types/course"
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
 import { useDispatch, useSelector } from 'react-redux'
 import { enrollInCourse, unenrollFromCourse } from '@/lib/redux/slices/courseSlice'
 import type { RootState } from '@/lib/redux/store'

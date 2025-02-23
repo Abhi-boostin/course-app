@@ -13,7 +13,7 @@ export function EnrolledCourses() {
   if (enrolledCourses.length === 0) {
     return (
       <div className="text-center text-muted-foreground">
-        <p>You haven't enrolled in any courses yet.</p>
+        <p>You haven&apos;t enrolled in any courses yet.</p>
       </div>
     )
   }
