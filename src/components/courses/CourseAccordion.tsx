@@ -18,19 +18,28 @@ export function CourseAccordion() {
   const dispatch = useDispatch()
   const courses = useSelector((state: RootState) => state.courses.courses)
   const [searchQuery, setSearchQuery] = useState("")
+  const [error, setError] = useState<string | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const fetchCourses = async () => {
       try {
+        setIsLoading(true)
         const response = await fetch("https://mocki.io/v1/68c63d24-6b6b-4156-8c24-a3118bacd02e")
+        if (!response.ok) {
+          throw new Error('Failed to fetch courses')
+        }
         const data = await response.json()
         if (data.courses && Array.isArray(data.courses)) {
           dispatch(setCourses(data.courses))
         } else {
-          console.error("Fetched data is not an array:", data)
+          throw new Error("Invalid data format")
         }
       } catch (error) {
+        setError(error instanceof Error ? error.message : 'An error occurred')
         console.error("Error fetching courses:", error)
+      } finally {
+        setIsLoading(false)
       }
     }
 
@@ -42,6 +51,14 @@ export function CourseAccordion() {
       course.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       course.instructor.toLowerCase().includes(searchQuery.toLowerCase())
   ) : []
+
+  if (isLoading) {
+    return <div>Loading courses...</div>
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>
+  }
 
   return (
     <div className="w-full max-w-3xl mx-auto p-4 space-y-4">
