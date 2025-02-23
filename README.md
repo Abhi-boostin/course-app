@@ -73,3 +73,4 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 - [Redux Toolkit](https://redux-toolkit.js.org) for state management.
 - [Tailwind CSS](https://tailwindcss.com) for styling.
 - [Radix UI](https://www.radix-ui.com) for accessible UI components.
+- Shadcn/ui (<https://ui.shadcn.com) for UI library Component
