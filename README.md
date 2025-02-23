@@ -1,45 +1,44 @@
-# Course Management Application
+# Course Management App
 
-This is a Course Management Application built with Next.js, React, and Redux. The application allows users to view available courses, enroll in them, and track their progress. It also features a student dashboard that displays the courses a user is enrolled in, along with their progress.
+A modern course management platform built with Next.js 15 and TypeScript. Features an intuitive interface for browsing and enrolling in courses, with dark/light mode support and responsive design. Built using Redux for state management, Tailwind CSS for styling, and shadcn/ui components.
+
+🚀 **Live Demo**: [https://course-app-ecru.vercel.app/](https://course-app-ecru.vercel.app/)
+
+## Quick Start
+```bash
+npm install
+npm run dev
+```
+
+## Tech Stack
+- Next.js 15
+- Redux Toolkit
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Radix UI
 
 ## Features
-
-- **Course Listing**: Users can view a list of available courses with details such as name, instructor, duration, schedule, and enrollment status.
-- **Enrollment Management**: Users can enroll in or unenroll from courses, with real-time updates reflecting their enrollment status.
-- **Student Dashboard**: A dedicated dashboard for students to view their enrolled courses, including progress tracking.
-- **Search Functionality**: Users can search for courses or instructors using a search bar.
-- **Responsive Design**: The application is designed to be responsive and works well on various screen sizes.
-
-## Technologies Used
-
-- **Frontend**: 
-  - Next.js for server-side rendering and routing
-  - React for building user interfaces
-  - Redux Toolkit for state management
-  - Tailwind CSS for styling
-  - Radix UI for accessible UI components
+- 📚 Browse available courses with detailed information
+- ✨ Interactive course details with expandable accordion views
+- 🎨 Modern UI with dark/light mode support
+- 📱 Fully responsive design for all devices
+- 💫 Smooth animations and transitions
+- 🔄 Real-time course enrollment status
 
 ## Getting Started
+```bash
+# Install dependencies
+npm install
 
-To run the application locally, follow these steps:
+# Run development server
+npm run dev
 
-1. **Clone the repository**:
-   ```bash
-   git clone <repository-url>
-   cd course-app
-   ```
+# Build for production
+npm run build
+```
 
-2. **Install the dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Run the development server**:
-   ```bash
-   npm run dev
-   ```
-
-4. **Open [http://localhost:3000](http://localhost:3000)** in your browser to see the application.
+Visit `http://localhost:3000` to view the application.
 
 ## Project Structure
 
