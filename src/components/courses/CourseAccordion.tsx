@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { setCourses } from "@/lib/redux/slices/courseSlice"
 import { RootState } from "@/lib/redux/store"
-import { courses, Course } from "@/lib/data/courses" // Import the hardcoded data
+import { courses, Course } from "@/lib/types/course"
 import {
   Accordion,
   AccordionContent,
@@ -26,7 +26,7 @@ export function CourseAccordion() {
   }, [dispatch])
 
   const filteredCourses = courses.filter(
-    (course) =>
+    (course: Course) =>
       course.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       course.instructor.toLowerCase().includes(searchQuery.toLowerCase())
   )
@@ -41,7 +41,7 @@ export function CourseAccordion() {
       />
       <ScrollArea className="h-[600px] rounded-md border p-4">
         <Accordion type="single" collapsible className="w-full">
-          {filteredCourses.map((course) => (
+          {filteredCourses.map((course: Course) => (
             <AccordionItem key={course.id} value={`item-${course.id}`}>
               <AccordionTrigger className="hover:no-underline">
                 <div className="flex flex-col items-start">
