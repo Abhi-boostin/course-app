@@ -1,5 +1,4 @@
-import { DashboardLayout } from "@/components/dashboard/DashboardLayout"
-import { EnrolledCourses } from "@/components/dashboard/EnrolledCourses"
+import { DashboardLayout, EnrolledCourses } from "@/components"
 
 export default function DashboardPage() {
   return (

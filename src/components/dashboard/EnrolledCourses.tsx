@@ -2,8 +2,7 @@
 
 import { useSelector } from "react-redux"
 import type { RootState } from "@/lib/redux/store"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
+import { CourseList } from "@/components/courses"
 
 export function EnrolledCourses() {
   const enrolledCourseIds = useSelector((state: RootState) => state.courses.enrolledCourses)
@@ -12,39 +11,29 @@ export function EnrolledCourses() {
 
   if (enrolledCourses.length === 0) {
     return (
-      <div className="text-center text-muted-foreground">
+      <div className="text-center text-muted-foreground py-8">
         <p>You haven&apos;t enrolled in any courses yet.</p>
+        <p className="text-sm mt-2">Browse available courses to get started!</p>
       </div>
     )
   }
 
+  // Mock progress data - in a real app, this would come from the backend
+  const progressData: Record<number, { value: number; text: string }> = {}
+  enrolledCourses.forEach(course => {
+    progressData[course.id] = {
+      value: Math.floor(Math.random() * 100),
+      text: `${Math.floor(Math.random() * 6) + 1} of ${course.syllabus.length} modules completed`
+    }
+  })
+
   return (
-    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {enrolledCourses.map((course) => (
-        <Card key={course.id}>
-          <CardHeader>
-            <CardTitle className="line-clamp-1">{course.name}</CardTitle>
-            <div className="text-sm text-muted-foreground">
-              Instructor: {course.instructor}
-            </div>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <div className="text-sm font-medium">Course Progress</div>
-                <Progress value={33} />
-                <div className="text-xs text-muted-foreground">
-                  2 of 6 modules completed
-                </div>
-              </div>
-              <div className="text-sm">
-                <div><strong>Schedule:</strong> {course.schedule}</div>
-                <div><strong>Duration:</strong> {course.duration}</div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
+    <CourseList
+      courses={enrolledCourses}
+      showSearch={true}
+      showEnrollmentStatus={false}
+      showProgress={true}
+      progressData={progressData}
+    />
   )
 } 

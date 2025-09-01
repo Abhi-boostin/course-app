@@ -1,5 +1,4 @@
-import { DashboardLayout } from "@/components/dashboard/DashboardLayout"
-import { CourseAccordion } from "@/components/courses/CourseAccordion"
+import { DashboardLayout, CourseAccordion } from "@/components"
 
 export default function Home() {
   return (

@@ -1,7 +1,6 @@
 "use client"
 
-import { ThemeToggle } from "@/components/theme-toggle"
-import { BackgroundPaths } from "@/components/ui/background-paths"
+import { ThemeToggle, BackgroundPaths } from "@/components"
 import { cn } from "@/lib/utils"
 import { Menu } from "lucide-react"
 import Link from "next/link"
